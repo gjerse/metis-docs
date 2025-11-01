@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metis-docs"
+version = "0.0.1" # Puoi usare una versione che non entra in conflitto con i tag Git
+description = "Metis Documentation Project"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[tool.setuptools.packages]
+# Se il tuo codice sorgente Metis è in una cartella 'metis/'
+# (es. metis-docs/metis/__init__.py)
+find = {}
