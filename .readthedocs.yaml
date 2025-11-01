@@ -8,7 +8,14 @@ build:
 
 sphinx:
   configuration: source/conf.py
+  # 2. **AGGIUNGI QUESTA RIGA:** Indica la directory base per i sorgenti di Sphinx.
+  fail_on_warning: true
 
 python:
   install:
     - requirements: requirements.txt
+    # 3. **AGGIUNGI L'INSTALLAZIONE DEL PROGETTO:** #    Se la tua doc usa autodoc, Read the Docs ha bisogno di 
+    #    installare il tuo pacchetto prima di poterlo documentare.
+    #    Assumendo che il tuo progetto abbia un file setup.py o pyproject.toml
+    - method: pip
+      path: .
