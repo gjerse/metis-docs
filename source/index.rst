@@ -6,7 +6,7 @@
 
 ==================================
 Solar Orbiter Metis Data Documentation
-================================== 
+==================================
 Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
 
 # Metis Documentation
