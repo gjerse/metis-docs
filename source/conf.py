@@ -136,7 +136,8 @@ master_doc = "index"
 def setup(app):
     app.add_css_file("custom.css")  # Add custom CSS for styling
 
-
+# Do not treat warnings as errors
+suppress_warnings = ["ref.term", "ref.option", "ref.citation"]
 
 
 
