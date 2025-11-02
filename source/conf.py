@@ -108,12 +108,15 @@ html_theme_options = {
 # -- Sphinx-Gallery Configuration (Example Gallery) --------------------------
 os.environ["JSOC_EMAIL"] = "jsoc@sunpy.org"
 sphinx_gallery_conf = {
-    'examples_dirs': '/examples',   # Path to example scripts
-    'gallery_dirs': 'auto_gallery',   # Output path for gallery
-    'filename_pattern': r'.*\.py',    # Only include .py files
-    'download_all_examples': False,   # Don't zip all examples for download
-    'remove_config_comments': True,   # Clean up script headers
+    # Usa il percorso assoluto: directory di conf.py + 'examples'
+    'examples_dirs': os.path.join(os.path.dirname(__file__), 'examples'),
+    
+    'gallery_dirs': 'auto_gallery',  # Output path for gallery
+    'filename_pattern': r'.*\.py',   # Only include .py files
+    'download_all_examples': False,  # Don't zip all examples for download
+    'remove_config_comments': True,  # Clean up script headers
 }
+    
 
 # Source file suffix
 source_suffix = ".rst"
