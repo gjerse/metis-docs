@@ -90,18 +90,17 @@ This documentation is divided into key sections to guide you from installation t
             See Contribution Guide
 
 
+What is this Documentation For?
+===============================  <-- CORREZIONE: Intestazione spostata fuori dalla direttiva 'container'
+
 .. container:: custom-section
     
-    What is this Documentation For?
-    ===============================
+    This documentation aims to support the Metis data user community by:
     
-    
-      This documentation aims to support the Metis data user community by:
     * Helping researchers and enthusiasts work with Solar Orbiter Metis data.
     * Providing interactive Python examples for common data analysis tasks.
     * Hosting useful links, resources, and tutorials.
     * Encouraging community contributions!
-
 
 **Useful Links**
 
