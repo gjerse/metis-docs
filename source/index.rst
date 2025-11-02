@@ -10,7 +10,6 @@ This documentation provides guides, interactive examples, and resources
 for working with **Metis data in Python**, primarily utilizing the powerful 
 `SunPy <https://sunpy.org>`__ ecosystem.
 
-### Key Sections and Documentation Structure
 
 This documentation is divided into key sections to guide you from installation to advanced analysis.
 
@@ -25,7 +24,7 @@ This documentation is divided into key sections to guide you from installation t
         **Getting Started**
         ^^^
 
-        Learn how to install Python dependencies and begin loading your first Metis data file.
+        Learn how to install Python dependencies and get started with Metis data.
 
         +++
 
@@ -91,7 +90,7 @@ This documentation is divided into key sections to guide you from installation t
 
 
 What is this Documentation For?
-===============================  <-- CORREZIONE: Intestazione spostata fuori dalla direttiva 'container'
+===============================  
 
 .. container:: custom-section
     
