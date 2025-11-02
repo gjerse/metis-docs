@@ -3,16 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
-===================================
+##################################################
 Solar Orbiter Metis Data Documentation
-===================================
+##################################################
+
 Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
 
-# Metis Documentation
-=====================  <-- CORREZIONE: Sostituito il titolo H1 non-RST (# Metis Documentation) con un'intestazione H2 corretta, e allineato l'underline.
+Metis Documentation
+====================
 
-Welcome to the **Metis Python Tools documentation**!!   🌞🚀
+Welcome to the **Metis Python Tools documentation**! 🌞🚀
 
 This wants to provide guides, examples, and resources 
 for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ ecosystem.
@@ -37,7 +37,6 @@ for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ e
             :click-parent:
 
             To the Getting Started Guide
-
 
 
     .. grid-item-card::
