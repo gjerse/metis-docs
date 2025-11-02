@@ -4,9 +4,9 @@
    contain the root `toctree` directive.
 
 
-====================================
+==================================
 Solar Orbiter Metis Data Documentation
-==================================== 
+================================== 
 Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
 
 # Metis Documentation
@@ -122,11 +122,3 @@ What is this Documentation For?
    Topic Guide <topic_guides/index>  
    Example Gallery <auto_gallery/index>
    Contributing <contributing>
-
-
-.. toctree::  <-- CORREZIONE: Ho trasformato il secondo {toctree} in una direttiva RST
-:maxdepth: 2
-:hidden:
-
-getting_started
-api_reference
