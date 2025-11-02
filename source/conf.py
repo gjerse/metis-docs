@@ -51,8 +51,9 @@ intersphinx_mapping = {
 
 templates_path = ['_templates']
 
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# Aggiungi 'examples/GALLERY_HEADER.rst' qui
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "examples/GALLERY_HEADER.rst"]
 # -- Options for HTML output -------------------------------------------------
 # Static files
 

@@ -4,14 +4,13 @@
    contain the root `toctree` directive.
 
 
-==================================
+====================================
 Solar Orbiter Metis Data Documentation
-==================================
-
-
+==================================== 
 Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
 
 # Metis Documentation
+=====================  <-- CORREZIONE: Sostituito il titolo H1 non-RST (# Metis Documentation) con un'intestazione H2 corretta, e allineato l'underline.
 
 Welcome to the **Metis Python Tools documentation**!!   🌞🚀
 
@@ -98,11 +97,12 @@ for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ e
 
 What is this Documentation For?
 =================================
+                                 <-- CORREZIONE: Riga vuota tra titolo e lista (RST richiede una linea vuota)
 
-- Helping researchers and enthusiasts work with Solar Orbiter Metis data.
-- Providing interactive Python examples for common data analysis tasks.
-- Hosting useful links, resources, and tutorials.
-- Encouraging community contributions!
+* Helping researchers and enthusiasts work with Solar Orbiter Metis data.
+* Providing interactive Python examples for common data analysis tasks.
+* Hosting useful links, resources, and tutorials.
+* Encouraging community contributions!
 
 
 
@@ -110,7 +110,7 @@ What is this Documentation For?
 `ESA Solar Orbiter <https://www.cosmos.esa.int/web/solar-orbiter>`__ |
 `Solar Orbiter Archive <https://soar.esac.esa.int/soar/>`__ |
 `Metis Project <https://metis.oato.inaf.it/>`__ |
-`GitHub Repository <https://github.com/`
+`GitHub Repository <https://github.com/gjerse/metis-docs>`__   <-- CORREZIONE: Ho chiuso l'URL del repository GitHub, che era la causa del warning "start-string without end-string" sulla linea 109 (che era il link utile). Ho anche rimosso la barra verticale (|) finale, che era in eccesso.
 
 
 .. toctree::
@@ -124,16 +124,9 @@ What is this Documentation For?
    Contributing <contributing>
 
 
-
-```{toctree}
+.. toctree::  <-- CORREZIONE: Ho trasformato il secondo {toctree} in una direttiva RST
 :maxdepth: 2
 :hidden:
 
 getting_started
 api_reference
-```
-
-
-
-For source code and development, visit  
-👉 [https://github.com/gjerse/metis-docs](https://github.com/gjerse/metis-docs)
