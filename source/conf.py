@@ -51,9 +51,18 @@ intersphinx_mapping = {
 
 templates_path = ['_templates']
 
-
+exclude_patterns = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    # Prova la variante più generica se quella precisa fallisce:
+    "examples/GALLERY_HEADER.rst", # Questa è la tua attuale
+    # MAIUSACOLA: A volte è sensibile alle maiuscole/minuscole
+    "examples/gallery_header.rst", 
+    # Oppure prova ad escludere l'intera cartella examples/
+    "examples/*" 
+]
 # Aggiungi 'examples/GALLERY_HEADER.rst' qui
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "examples/GALLERY_HEADER.rst"]
 # -- Options for HTML output -------------------------------------------------
 # Static files
 
