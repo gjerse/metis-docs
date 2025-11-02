@@ -1,21 +1,18 @@
 .. Solar Orbiter Metis Docs documentation master file, created by
    sphinx-quickstart on Sat Nov  1 18:18:26 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-##################################################
-Solar Orbiter Metis Data Documentation
-##################################################
+====================================
+Metis Data Tools User Guide
+====================================
+Welcome to the **Solar Orbiter Metis Data Tools User Guide**! 🌞🚀
 
-Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
+This documentation provides guides, interactive examples, and resources 
+for working with **Metis data in Python**, primarily utilizing the powerful 
+`SunPy <https://sunpy.org>`__ ecosystem.
 
-Metis Documentation
-====================
+### Key Sections and Documentation Structure
 
-Welcome to the **Metis Python Tools documentation**! 🌞🚀
-
-This wants to provide guides, examples, and resources 
-for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ ecosystem.
+This documentation is divided into key sections to guide you from installation to advanced analysis.
 
 .. grid:: 1 1 2 2
     :gutter: 2 3 4 4
@@ -28,34 +25,33 @@ for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ e
         **Getting Started**
         ^^^
 
-        Learn how to install dependencies and get started with Solar Orbiter Metis data.
+        Learn how to install Python dependencies and begin loading your first Metis data file.
 
         +++
 
         .. button-ref:: getting_started
-            :color: secondary
+            :color: primary
             :click-parent:
 
             To the Getting Started Guide
-
 
     .. grid-item-card::
         :text-align: center
 
         :material-outlined:`build;8em;sd-text-secondary`
 
-        **Analysis Tools**
+        **Data & Tools Overview**
         ^^^
 
-        Tools for analyzing Solar Orbiter Metis data using SunPy and other Python packages.
+        Details on Metis data levels and documentation for both Python and legacy IDL analysis tools.
 
         +++
 
-        .. button-ref:: data_overview/analysis_tools
-            :color: secondary
+        .. button-ref:: data_overview/index
+            :color: primary
             :click-parent:
 
-            To the Analysis Tools
+            Explore Data and Tools
 
     .. grid-item-card::
         :text-align: center
@@ -65,51 +61,52 @@ for working with Metis data in Python, using the `SunPy <https://sunpy.org>`__ e
         **Example Gallery**
         ^^^
 
-        Browse interactive examples demonstrating Solar Orbiter Metis data analysis.
+        Browse interactive scripts and Jupyter Notebooks demonstrating Metis data analysis and visualization.
 
         +++
 
         .. button-ref:: auto_gallery/index
-            :color: secondary
+            :color: primary
             :click-parent:
 
-            To the Example Gallery
+            Open the Gallery
 
     .. grid-item-card::
         :text-align: center
 
         :material-outlined:`volunteer_activism;8em;sd-text-secondary`
 
-        **Contribute to the Docs**
+        **Contribute**
         ^^^
 
-        Help improve this documentation by adding examples, fixing typos, or suggesting new content.
+        Learn how to help improve this documentation, submit examples, or contribute to the Metis Python code.
 
         +++
 
         .. button-ref:: contributing
-            :color: secondary
+            :color: primary
             :click-parent:
 
-            Go to Contributing Guide
+            See Contribution Guide
 
 
-What is this Documentation For?
-=================================
-                                 <-- CORREZIONE: Riga vuota tra titolo e lista (RST richiede una linea vuota)
+.. container:: custom-section
+    
+    What is this Documentation For?
+    ===============================
+    
+    * Helping researchers and enthusiasts work with Solar Orbiter Metis data.
+    * Providing interactive Python examples for common data analysis tasks.
+    * Hosting useful links, resources, and tutorials.
+    * Encouraging community contributions!
 
-* Helping researchers and enthusiasts work with Solar Orbiter Metis data.
-* Providing interactive Python examples for common data analysis tasks.
-* Hosting useful links, resources, and tutorials.
-* Encouraging community contributions!
 
+**Useful Links**
 
-
-**Useful links**:
-`ESA Solar Orbiter <https://www.cosmos.esa.int/web/solar-orbiter>`__ |
-`Solar Orbiter Archive <https://soar.esac.esa.int/soar/>`__ |
-`Metis Project <https://metis.oato.inaf.it/>`__ |
-`GitHub Repository <https://github.com/gjerse/metis-docs>`__   <-- CORREZIONE: Ho chiuso l'URL del repository GitHub, che era la causa del warning "start-string without end-string" sulla linea 109 (che era il link utile). Ho anche rimosso la barra verticale (|) finale, che era in eccesso.
+| `ESA Solar Orbiter <https://www.cosmos.esa.int/web/solar-orbiter>`__ |
+| `Solar Orbiter Archive <https://soar.esac.esa.int/soar/>`__ |
+| `Metis Project <https://metis.oato.inaf.it/>`__ |
+| `GitHub Repository <https://github.com/gjerse/metis-docs>`__ |
 
 
 .. toctree::
@@ -120,4 +117,5 @@ What is this Documentation For?
    Data and Tools Overview <data_overview/index>
    Topic Guide <topic_guides/index>  
    Example Gallery <auto_gallery/index>
+   API Reference <api_reference/index>
    Contributing <contributing>
