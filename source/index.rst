@@ -4,10 +4,10 @@
    contain the root `toctree` directive.
 
 
-
-===================================
+==================================
 Solar Orbiter Metis Data Documentation
-===================================
+==================================
+
 
 Welcome to the Solar Orbiter Data Documentation! 🌞🚀  
 
@@ -110,7 +110,7 @@ What is this Documentation For?
 `ESA Solar Orbiter <https://www.cosmos.esa.int/web/solar-orbiter>`__ |
 `Solar Orbiter Archive <https://soar.esac.esa.int/soar/>`__ |
 `Metis Project <https://metis.oato.inaf.it/>`__ |
-`GitHub Repository <https://github.com/
+`GitHub Repository <https://github.com/`
 
 
 .. toctree::

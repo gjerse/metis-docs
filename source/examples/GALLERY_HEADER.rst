@@ -1,4 +1,3 @@
-.. _gallery_intro:
 
 Guida agli Esempi
 =================
