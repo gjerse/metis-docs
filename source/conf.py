@@ -65,7 +65,7 @@ html_theme_options = {
 }
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
-html_logo = "_static/SolarOrbiter.png"
+html_logo = "_static/logo_metis.png"
 html_theme = "pydata_sphinx_theme"
 
 
@@ -78,12 +78,12 @@ html_theme = "pydata_sphinx_theme"
 # Custom Theme Options
 html_theme_options = {
     "logo": {
-        "text": "Solar Orbiter Docs",
+        "text": "Metis Docs",
     },
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/SolarOrbiterWorkshop/solar-orbiter-docs",
+            "url": "https://github.com/gjerse/metis-docs",
             "icon": "fa-brands fa-github",
         },        
         {
@@ -108,7 +108,7 @@ html_theme_options = {
 # -- Sphinx-Gallery Configuration (Example Gallery) --------------------------
 os.environ["JSOC_EMAIL"] = "jsoc@sunpy.org"
 sphinx_gallery_conf = {
-    'examples_dirs': '../examples',   # Path to example scripts
+    'examples_dirs': '/examples',   # Path to example scripts
     'gallery_dirs': 'auto_gallery',   # Output path for gallery
     'filename_pattern': r'.*\.py',    # Only include .py files
     'download_all_examples': False,   # Don't zip all examples for download
