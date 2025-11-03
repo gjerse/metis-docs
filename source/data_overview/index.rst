@@ -26,8 +26,7 @@ Use the resources below to navigate your analysis path, from data acquisition to
    :maxdepth: 2
    :caption: Analysis Workflows 
 
-   
+   data_overview  
    data_access
-   data_overview      
    analysis_tools
    idl_tools

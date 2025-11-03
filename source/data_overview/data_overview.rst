@@ -12,7 +12,7 @@ It is designed to simultaneously observe the solar corona in two different wavel
 * **Ultraviolet (UV) channel**: The UV channel observes in the Lyman-α line at 121.6 nm, emitted by neutral hydrogen in the extended corona. Note: The same spectral line is observed on-disk by EUI/HRILYA (also onboard Solar Orbiter).
 
 
-Metis Data Products 
+Metis Data Products and Levels
 -------------------
 
 * **Visible Light (VL) channel:**
@@ -24,7 +24,6 @@ Metis Data Products
 * **Ultraviolet (UV) channel**:
    * Lyman-α narrowband images  
 
-Metis data is distributed via the Solar Orbiter Archive (SOAR) and follows the standard processing level definitions established for the mission.
 
 .. list-table:: **Data Levels Overview**
    :header-rows: 1
@@ -56,13 +55,6 @@ Metis data is distributed via the Solar Orbiter Archive (SOAR) and follows the s
      - Derived Physical Units
      - Yes (Advanced products: e.g., electron density maps, solar wind velocity maps, Carrington maps)
 
-Primary L2 Data Products
-------------------------
-
-The Python analysis tools focus heavily on loading these primary Level 2 data types:
-
-* **VL Images:** Polarized Brightness (pB), Total Brightness (tB)Fixed Polarization (FP); Pol-angle, Stokes.
-* **UV Images:** Ly-α narrowband images.
 
 Metis FITS File Naming Convention
 ---------------------------------
