@@ -4,13 +4,6 @@ Ways to Access Metis Data
 
 This page details the available methods for accessing and downloading Metis data products from the **Solar Orbiter Archive (SOAR)**.
 
-**Metis Data Availability**
-
-Metis L2 data are available through the Solar Orbiter Archive.
-
-Level 0 (Raw) and Level 1 (Engineering) uncalibrated data are not publicly distributed but may be available upon request.  
-For technical assistance or data requests outside of public releases, please contact the **Metis Team** at `metis@inaf.it <mailto:metis@inaf.it>`_.
-
 
 1. Programmatic Access (Python Recommended)
 -------------------------------------------
@@ -125,7 +118,7 @@ PyVO simplifies this process in the Python environment, providing the necessary 
 
 
 
-1. Web Interface and Manual Access
+2. Web Interface and Manual Access
 ----------------------------------
 
 2.1. SOAR Web Interface
@@ -156,5 +149,9 @@ Data is also available via the **Virtual Solar Observatory (VSO)** interface, wh
 Data Availability and Releases
 --------------------------------
 
-Metis data is made available through scheduled periodic **data releases**.  
+Metis L2 data is made available through scheduled periodic **data releases**.  
 Check the list of current releases on the **Metis Team website** or the **SOAR interface** for the latest available data.
+
+Level 0 (Raw) and Level 1 (Engineering) uncalibrated data are not publicly distributed but may be available upon request.  
+For technical assistance or data requests outside of public releases, please contact the **Metis Team** at `metis@inaf.it <mailto:metis@inaf.it>`_.
+
