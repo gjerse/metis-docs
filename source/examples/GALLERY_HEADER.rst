@@ -1,6 +1,7 @@
 
-Guida agli Esempi
-=================
+Example Gallery
+===============
 
-Questa galleria contiene esempi pratici su come utilizzare la libreria Metis.
-Fai clic su un esempio per vedere il codice sorgente e l'output.
+This gallery contains Python scripts demonstrating how to work with Solar Orbiter data. The examples are auto-generated from Python scripts in this directory.
+
+See here for more details on how they should be structured: `Sphinx-Gallery Syntax <https://sphinx-gallery.github.io/stable/syntax.html>`_
