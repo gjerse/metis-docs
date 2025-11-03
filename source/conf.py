@@ -76,8 +76,7 @@ html_theme_options = {
 html_static_path = ["_static"]
 html_css_files = ["custom.css"]
 html_logo = "_static/logo_metis.png"
-html_theme = "sphinx_rtd_theme"
-#"pydata_sphinx_theme"
+html_theme = "pydata_sphinx_theme"
 
 
 # Sidebar and Navigation
@@ -88,6 +87,32 @@ html_theme = "sphinx_rtd_theme"
 
 # Custom Theme Options
 
+html_theme_options = {
+    "logo": {
+        "text": "Metis Docs",
+    },
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/gjerse/metis-docs",
+            "icon": "fa-brands fa-github",
+        },        
+        {
+            "name": "Metis Coronograph",
+            "url": "https://metis.oato.inaf.it",
+            "icon": "fa-solid fa-sun",
+        },
+        
+        {
+            "name": "SunPy",
+            "url": "https://docs.sunpy.org/",
+            "icon": "fa-brands fa-python",
+        },
+    ],
+    "navbar_start": ["navbar-logo"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "secondary_sidebar_items": ["page-toc"],
+}
 
 
 
