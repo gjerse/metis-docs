@@ -7,8 +7,8 @@ This page provides an overview of how to set up your Python environment and star
 This documentation and the :doc:`Example Gallery <auto_gallery/index>` build upon existing tools in the `SunPy <https://sunpy.org>`__ ecosystem, leveraging community-developed libraries for solar physics research.
 
 
-1. Installing Python and Development Environment
-------------------------------------------------
+Installing Python and Development Environment
+---------------------------------------------
 
 **Anaconda**  
 
@@ -30,8 +30,8 @@ Official Python installation for minimal setups.
 - Guide: `Python Installation <https://docs.python.org/3/using/index.html>`_
 - Official site: `Python.org <https://www.python.org/>`_
 
-1. Code Editors and IDEs
-------------------------
+Code Editors and IDEs
+---------------------
 
 **Jupyter Notebook** 
 
@@ -55,8 +55,8 @@ An IDE included with Anaconda, tailored for scientific computing.
 - Ideal for beginners transitioning from MATLAB.  
 - Official site: `Spyder IDE <https://www.spyder-ide.org/>`_
 
-1. Managing Python Environments
--------------------------------
+Managing Python Environments
+----------------------------
 
 **Conda (via Anaconda or Miniconda)**  
 Create and manage isolated environments.
@@ -74,8 +74,8 @@ Alternative tool for managing Python environments.
 - Guide: `Virtualenv Tutorial <https://virtualenv.pypa.io/en/latest/>`_
 
 
-1. Installing the Required Packages
------------------------------------
+Installing the Required Packages
+--------------------------------
 
 Before working with Metis data, you need **Python** (version 3.11+ recommended) and a few key libraries. For detailed installation instructions, including setting up a dedicated environment, please refer to the `SunPy Installation Guide <https://docs.sunpy.org/en/stable/tutorial/installation.html>`__.
 
@@ -117,8 +117,8 @@ To ensure your setup is correct and all packages are accessible, run the followi
 If this runs without errors, you're ready to start working with Metis data!
 
 
-1. Tutorials and Online Resources
----------------------------------
+Tutorials and Online Resources
+------------------------------
 
 **Python for Astronomy**
 
