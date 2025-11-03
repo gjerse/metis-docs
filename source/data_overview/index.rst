@@ -1,16 +1,7 @@
 Metis Data and Analysis Tools
 =============================
 
-This section serves as your central resource for understanding the access, structure, and analysis of Solar Orbiter Metis data. Here you will find procedures for downloading data, overviews of the **Python analysis toolkit**, and guidance on **IDL integration**.
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Analysis Resources
-
-   Data Overview <data_overview>
-   Data Access and Download <data_access>
-   Python Analysis Functions <analysis_tools>
-   Integration of Legacy IDL Tools <idl_tools>
+This section serves as your central resource for understanding the access, structure and analysis of Solar Orbiter Metis data. Here you will find procedures for downloading data, overviews of the **Python analysis toolkit**, and guidance on **IDL integration**.
 
 
 
