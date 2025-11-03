@@ -9,7 +9,7 @@ sphinx-design
 sphinx-copybutton  
 myst-nb  
 pydata-sphinx-theme 
-sphinx_rtd_theme 
+sphinx-rtd-theme 
 nbsphinx
 jupyter
 cmasher
