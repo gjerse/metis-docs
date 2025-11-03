@@ -20,3 +20,14 @@ Use the resources below to navigate your analysis path, from data acquisition to
 
 * **Integration of Legacy IDL Tools** (:doc:`idl_tools`)
     A crucial guide detailing when and how to utilize **legacy IDL routines**. It explains the method for safely importing IDL output files (``.sav``) into the Python environment for final analysis and publication-ready plotting, minimizing interruptions to your Python workflow.
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Analysis Workflows 
+
+   
+   data_access
+   data_overview      
+   analysis_tools
+   idl_tools
