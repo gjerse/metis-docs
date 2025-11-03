@@ -4,11 +4,11 @@ Ways to Access Metis Data
 
 This page details the available methods for accessing and downloading Metis data products from the **Solar Orbiter Archive (SOAR)**, focusing on **programmatic Python access**.
 
-Level 2 Metis data are fully calibrated into physical units and are generally ready for scientific analysis.  
-The calibration is continuously refined, and public data is updated over the course of the mission based on improved instrument understanding.
+**Metis Data Availability**
 
+Metis L2 data are available through the Solar Orbiter Archive
 Level 0 (Raw) and Level 1 (Engineering) uncalibrated data are not publicly distributed but may be available upon request.  
-For technical assistance or data requests outside of public releases, please contact the **Metis Team**.
+For technical assistance or data requests outside of public releases, please contact the **Metis Team**.`<metis@inaf.it>`__
 
 
 1. Programmatic Access (Python Recommended)
@@ -34,10 +34,6 @@ This integrates Metis data access directly into SunPy's ``Fido`` client.
      - Plugin for accessing data in the Solar Orbiter Archive (SOAR) via the ``sunpy.net.Fido`` search interface.
      - Primary tool used by the Metis Python tools (e.g., ``metis_load()``).
 
-**Implementation Example**
-
-The Metis analysis package encapsulates the search and download logic within its tools (e.g., ``metis_load()`` or ``metis_fetch()``).  
-This handles the low-level Fido query for you automatically.
 
 
 1.2. VO Protocol Access (``PyVO``)
@@ -66,10 +62,9 @@ For users familiar with the **Virtual Observatory (VO)** standards, the **PyVO**
    service = vo.dal.TAPService("http://soar.esac.esa.int/soar-sl-tap/tap/")
 
    # Example: Execute an ADQL query to find data products
-   # results = service.search(
-   #     "SELECT * FROM dbo.v_solo_files WHERE instrument='METIS' AND level=2"
-   # )
-   # results.to_table().pprint()
+   results = service.search(
+        "SELECT * FROM dbo.v_solo_files WHERE instrument='METIS' AND level=2")
+   results.to_table().pprint()
 
 
 
