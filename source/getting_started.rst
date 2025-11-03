@@ -1,42 +1,47 @@
-.. _python_wg:
 
-Getting Started with Python for Astrophysics
-============================================
+Getting Started with Metis Data Tools
+=====================================
 
-`↑ Back to Python WG <https://redmine.ict.inaf.it/projects/636/wiki>`_
+This page provides an overview of how to set up your Python environment and start working with **Solar Orbiter Metis data** using the official analysis tools.
+
+This documentation and the :doc:`Example Gallery <auto_gallery/index>` build upon existing tools in the `SunPy <https://sunpy.org>`__ ecosystem, leveraging community-developed libraries for solar physics research.
+
 
 1. Installing Python and Development Environment
 ------------------------------------------------
 
 **Anaconda**  
-A comprehensive suite for installing Python and major scientific libraries.
 
-- Includes tools like Jupyter Notebook and Spyder.  
+A comprehensive suite for installing Python and major scientific libraries.
+ 
 - Guide: `Installing Anaconda <https://docs.anaconda.com/anaconda/install/>`_  
 - Official site: `Anaconda.org <https://anaconda.org/>`_
 
 **Miniconda**  
+
 A lightweight alternative to Anaconda for creating custom environments.
 
 - Guide: `Installing Miniconda <https://docs.anaconda.com/miniconda/install/>`_
 
 **Python.org**  
+
 Official Python installation for minimal setups.
 
 - Guide: `Python Installation <https://docs.python.org/3/using/index.html>`_
 - Official site: `Python.org <https://www.python.org/>`_
 
-2. Code Editors and IDEs
+1. Code Editors and IDEs
 ------------------------
 
-**Jupyter Notebook**  
-An interactive environment for writing, running, and visualizing Python code.
+**Jupyter Notebook** 
 
-- Ideal for data exploration and quick prototyping.  
+An interactive environment for writing, running, and visualizing Python code; ideal for data exploration and quick prototyping. 
+
 - Guide: `Using Jupyter <https://jupyter-notebook.readthedocs.io/en/stable/>`_  
 - Official site: `Jupyter.org <https://jupyter.org/>`_
 
 **Visual Studio Code**  
+
 A lightweight IDE with excellent Python support.
 
 - Extensions: Python, Jupyter, and Pylance for linting and autocompletion.  
@@ -44,12 +49,13 @@ A lightweight IDE with excellent Python support.
 - Official site: `Visual Studio Code <https://code.visualstudio.com/>`_
 
 **Spyder**  
+
 An IDE included with Anaconda, tailored for scientific computing.
 
 - Ideal for beginners transitioning from MATLAB.  
 - Official site: `Spyder IDE <https://www.spyder-ide.org/>`_
 
-3. Managing Python Environments
+1. Managing Python Environments
 -------------------------------
 
 **Conda (via Anaconda or Miniconda)**  
@@ -67,58 +73,13 @@ Alternative tool for managing Python environments.
 
 - Guide: `Virtualenv Tutorial <https://virtualenv.pypa.io/en/latest/>`_
 
-4. Astrophysics-Specific Python Libraries
------------------------------------------
 
-**AstroPy**  
-Essential library for astronomical calculations and data manipulation.  
-Guide: `AstroPy Documentation <https://www.astropy.org/>`_
-
-**SunPy**  
-Specialized library for solar physics.  
-Guide: `Getting Started with SunPy <https://sunpy.org/>`_
-
-**Pandas**  
-For managing and analyzing tabular data.  
-Guide: `Pandas Tutorials <https://pandas.pydata.org/>`_
-
-**Matplotlib**  
-Visualization library for creating static and interactive plots.  
-Guide: `Matplotlib Tutorials <https://matplotlib.org/>`_
-
-5. Tutorials and Online Resources
----------------------------------
-
-**Python for Astronomy**
-
-- `AstroPython <https://astropy.org/>`_: Tutorials and resources for using Python in astronomy.
-- `Solar Orbiter Data Tutorials <https://www.cosmos.esa.int/web/solar-orbiter/data-tutorials>`_: Practical examples for astrophysical data analysis.
-
-**Interactive Python Tutorials**
-
-- `Google Colab <https://colab.google/>`_: Online Jupyter-like environment for running Python without local setup.
-- `Kaggle Notebooks <https://www.kaggle.com/code>`_: Free notebooks with Python examples for scientific computation.
-
-**Python Basics**
-
-- `Python.org Tutorials <https://docs.python.org/3/tutorial/>`_: Official Python documentation.
-- `Real Python <https://realpython.com/>`_: Beginner-friendly Python tutorials.
-
-Getting Started with Metis Data Tools
-=====================================
-
-This page provides an overview of how to set up your Python environment and start working with **Solar Orbiter Metis data** using the official analysis tools.
-
-This documentation and the :doc:`Example Gallery <auto_gallery/index>` build upon existing tools in the `SunPy <https://sunpy.org>`__ ecosystem, leveraging community-developed libraries for solar physics research.
-
----
-
-Installing the Required Packages
---------------------------------
+1. Installing the Required Packages
+-----------------------------------
 
 Before working with Metis data, you need **Python** (version 3.11+ recommended) and a few key libraries. For detailed installation instructions, including setting up a dedicated environment, please refer to the `SunPy Installation Guide <https://docs.sunpy.org/en/stable/tutorial/installation.html>`__.
 
-### Quick Setup
+**Quick Setup**
 
 For a quick setup, you can install the core dependencies using **pip**. This command includes the Metis analysis package and essential SunPy libraries for data access:
 
@@ -134,11 +95,10 @@ Or, if you prefer using conda:
 
 These packages provide:
 
-* **``metis-tools``**: The core Python package with loading, calibration, and plotting functions specific to Metis.
-* `sunpy <https://docs.sunpy.org/en/stable/>`__: Core library for data structures, time handling, and coordinates.
+* **``metis-tools``**: The core Python package with functions specific to Metis.
+* `sunpy <https://docs.sunpy.org/en/stable/>`__
 * `sunpy_soar <https://docs.sunpy.org/projects/soar/en/latest/>`__: The SunPy plug-in interface for programmatic access to the Solar Orbiter Archive (SOAR) via Fido.
 
----
 
 Verifying Your Installation
 ---------------------------
@@ -156,7 +116,26 @@ To ensure your setup is correct and all packages are accessible, run the followi
 
 If this runs without errors, you're ready to start working with Metis data!
 
----
+
+1. Tutorials and Online Resources
+---------------------------------
+
+**Python for Astronomy**
+
+- `AstroPython <https://astropy.org/>`_: Tutorials and resources for using Python in astronomy.
+- `Solar Orbiter Data Tutorials <https://www.cosmos.esa.int/web/solar-orbiter/data-tutorials>`_: Practical examples for astrophysical data analysis.
+
+**Interactive Python Tutorials**
+
+- `Google Colab <https://colab.google/>`_: Online Jupyter-like environment for running Python without local setup.
+- `Kaggle Notebooks <https://www.kaggle.com/code>`_: Free notebooks with Python examples for scientific computation.
+
+**Python Basics**
+
+- `Python.org Tutorials <https://docs.python.org/3/tutorial/>`_: Official Python documentation.
+- `Real Python <https://realpython.com/>`_: Beginner-friendly Python tutorials.
+
+
 
 First Example: Loading Metis Data
 ---------------------------------
