@@ -14,7 +14,7 @@ This section serves as your central resource for understanding the access, struc
 
 
 
-### Key Analysis Workflows
+**Key Analysis Workflows**
 
 Use the resources below to navigate your analysis path, from data acquisition to final results.
 
