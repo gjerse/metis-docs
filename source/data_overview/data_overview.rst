@@ -13,7 +13,7 @@ It is designed to simultaneously observe the solar corona in two different wavel
 
 
 Metis Data Products and Levels
--------------------
+------------------------------
 
 * **Visible Light (VL) channel:**
    * Polarized Brightness (pB): sequences of 4 polarised images (min. 1 minute cadence)
