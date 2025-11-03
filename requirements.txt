@@ -13,3 +13,4 @@ sphinx-rtd-theme
 nbsphinx
 jupyter
 cmasher
+astroquery

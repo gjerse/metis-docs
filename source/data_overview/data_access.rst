@@ -2,13 +2,14 @@
 Ways to Access Metis Data
 =========================
 
-This page details the available methods for accessing and downloading Metis data products from the **Solar Orbiter Archive (SOAR)**, focusing on **programmatic Python access**.
+This page details the available methods for accessing and downloading Metis data products from the **Solar Orbiter Archive (SOAR)**.
 
 **Metis Data Availability**
 
-Metis L2 data are available through the Solar Orbiter Archive
+Metis L2 data are available through the Solar Orbiter Archive.
+
 Level 0 (Raw) and Level 1 (Engineering) uncalibrated data are not publicly distributed but may be available upon request.  
-For technical assistance or data requests outside of public releases, please contact the **Metis Team**.`<metis@inaf.it>`__
+For technical assistance or data requests outside of public releases, please contact the **Metis Team** at `metis@inaf.it <mailto:metis@inaf.it>`_.
 
 
 1. Programmatic Access (Python Recommended)
@@ -32,14 +33,15 @@ This integrates Metis data access directly into SunPy's ``Fido`` client.
      - **Relevance**
    * - ``sunpy-soar``
      - Plugin for accessing data in the Solar Orbiter Archive (SOAR) via the ``sunpy.net.Fido`` search interface.
-     - Primary tool used by the Metis Python tools (e.g., ``metis_load()``).
-
-
+     - Primary tool used by the Metis Python tools. See Example Gallery for usage.
 
 1.2. VO Protocol Access (``PyVO``)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The direct web interface for the Solar Orbiter Archive (SOAR) is limited and not suitable for automated scripting. 
 
-For users familiar with the **Virtual Observatory (VO)** standards, the **PyVO** package allows querying the SOAR metadata tables directly using the **Table Access Protocol (TAP)** and the **Astronomy Data Query Language (ADQL)**.
+To address this, SOAR provides an Application Programming Interface (API) based on the standard IVOA (International Virtual Observatory Alliance) protocols.
+
+PyVO simplifies this process in the Python environment, providing the necessary interface to execute TAP queries against the SOAR service.
 
 .. list-table:: **VO Access Summary**
    :header-rows: 1
@@ -50,7 +52,7 @@ For users familiar with the **Virtual Observatory (VO)** standards, the **PyVO**
      - **Purpose**
    * - TAP (Table Access Protocol)
      - http://soar.esac.esa.int/soar-sl-tap/tap
-     - Query SOAR metadata and request data files using ADQL.
+     - Query SOAR metadata and request data files using ADQL (Astronomy Data Query Language).
 
 **Implementation Example (Searching SOAR tables)**
 
@@ -60,7 +62,16 @@ For users familiar with the **Virtual Observatory (VO)** standards, the **PyVO**
 
    # TAP service URL endpoint to access SOAR tables
    service = vo.dal.TAPService("http://soar.esac.esa.int/soar-sl-tap/tap/")
-
+   tables = service.tables
+   # print available tables
+   for table_name in tables:
+      print(table_name)
+   table_name = "soar.v_met_sc_fits" # science files table
+   table = service.tables[table_name]
+   # Explore table columns
+   print("Columns:")
+   for column in table.columns:
+      print(f"- {column.name}: {column.description} ({column.datatype})")
    # Example: Execute an ADQL query to find data products
    results = service.search(
         "SELECT * FROM dbo.v_solo_files WHERE instrument='METIS' AND level=2")
