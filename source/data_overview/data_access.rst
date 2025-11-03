@@ -58,24 +58,70 @@ PyVO simplifies this process in the Python environment, providing the necessary 
 
 .. code-block:: python
 
-   import pyvo as vo
+    from astroquery.utils.tap.core import TapPlus
+    from astropy.table import Table
+    from datetime import datetime, timedelta
 
-   # TAP service URL endpoint to access SOAR tables
-   service = vo.dal.TAPService("http://soar.esac.esa.int/soar-sl-tap/tap/")
-   tables = service.tables
-   # print available tables
-   for table_name in tables:
-      print(table_name)
-   table_name = "soar.v_met_sc_fits" # science files table
-   table = service.tables[table_name]
-   # Explore table columns
-   print("Columns:")
-   for column in table.columns:
-      print(f"- {column.name}: {column.description} ({column.datatype})")
-   # Example: Execute an ADQL query to find data products
-   results = service.search(
-        "SELECT * FROM dbo.v_solo_files WHERE instrument='METIS' AND level=2")
-   results.to_table().pprint()
+    # 1. TAP SOAR Service Configuration
+    # The TAP service endpoint for SOAR
+    SOAR_URL = 'http://soar.esac.esa.int/soar-sl-tap/tap'
+
+    try:
+        # 2. Initialize the TapPlus object
+        SOAR = TapPlus(url=SOAR_URL)
+        print("Connection to SOAR TAP service established.")
+    except Exception as e:
+        print(f"ERROR: Could not connect to TapPlus: {e}")
+        # Note: Added 'sys.exit(1)' or similar would be needed to truly halt execution here.
+        # For now, we continue execution for demonstration purposes.
+
+    # --- Search Period Definition ---
+    # We define a period of 600 days to find recent data
+    end_date = datetime.today()
+    start_date = end_date - timedelta(days=600)
+
+    start_time_iso = start_date.strftime('%Y-%m-%dT%H:%M:%S')
+    end_time_iso = end_date.strftime('%Y-%m-%dT%H:%M:%S')
+
+    print(f"\nSearching for Metis L2 data between {start_date.date()} and {end_date.date()}...")
+
+    # 3. ADQL Query Construction (Astronomy Data Query Language)
+    # We query the scientific data items table (v_sc_data_item)
+    ADQL_QUERY = f"""
+        SELECT top 5 * FROM v_sc_data_item 
+        WHERE 
+            instrument = 'METIS' AND 
+            level = 'L2' AND 
+            begin_time >= '{start_time_iso}' AND 
+            end_time <= '{end_time_iso}'
+    """
+
+    # 4. Asynchronous Task Execution (launch_job)
+    # We use launch_job for queries that might take a long time
+    try:
+        tap_job = SOAR.launch_job(ADQL_QUERY)
+        
+        # 5. Get Results as an Astropy Table
+        results_table = tap_job.get_results()
+        
+        # Print key results
+        print(f"\n[RESULT] Found {len(results_table)} Metis L2 files (showing top 5):")
+        
+        # Convert the Astropy table to a Pandas DataFrame for clean visualization
+        results_df = results_table.to_pandas()
+        print(results_df[['data_item_id', 'begin_time', 'level', 'descriptor']].head())
+
+        # 6. Extract Download URLs (The actual goal of TAP)
+        # Direct download URLs are often included as the "access_url" column
+        if 'access_url' in results_table.colnames:
+            first_url = results_table['access_url'][0]
+            print(f"\nDownload URL First File: {first_url}")
+            
+            # Note: The function for direct file download via astroquery 
+            # depends on the service configuration; Fido is often used for the actual fetch.
+
+    except Exception as e:
+        print(f"\nERROR during ADQL query execution: {e}")
 
 
 
