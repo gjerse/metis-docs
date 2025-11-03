@@ -17,12 +17,35 @@ Metis Data Products and Processing Levels
 
 Metis data is distributed via the Solar Orbiter Archive (SOAR) and follows the standard processing level definitions established for the mission.
 
-| Level | Name | Description | Units | Readiness for Analysis |
-| :--- | :--- | :--- | :--- | :--- | 
-| **L0** | Raw Data | Uncalibrated, uncompressed FITS files containing only basic telemetry header information. | DN (Digital Numbers) | No  |
-| **L1** | Engineering Data | Uncalibrated data with additional metadata (housekeeping, WCS keywords). | DN (Digital Numbers) | No (intermediate stage). |
-| **L2** | Calibrated Science Data | Data ready for scientific analysis; Corrections (bias, dark-current, flat-field, vignetting, exposure normalization, radiometric calibration) are applied. | Physical Units | Yes (Recommended)|
-| **L3** | Derived Data | High-level scientific products derived from Level 2 after advanced scientific analysis. | Derived Physical Units | Yes (Advanced products: e.g., electron density maps, solar wind velocity maps, Carrington maps). |
+.. list-table:: **Data Levels Overview**
+   :header-rows: 1
+   :widths: 10 20 35 15 20
+
+   * - **Level**
+     - **Name**
+     - **Description**
+     - **Units**
+     - **Readiness for Analysis**
+   * - **L0**
+     - Raw Data
+     - Uncalibrated, uncompressed FITS files containing only basic telemetry header information.
+     - DN (Digital Numbers)
+     - No
+   * - **L1**
+     - Engineering Data
+     - Uncalibrated data with additional metadata (housekeeping, WCS keywords).
+     - DN (Digital Numbers)
+     - No (intermediate stage)
+   * - **L2**
+     - Calibrated Science Data
+     - Data ready for scientific analysis; Corrections (bias, dark-current, flat-field, vignetting, exposure normalization, radiometric calibration) are applied.
+     - Physical Units
+     - Yes (Recommended)
+   * - **L3**
+     - Derived Data
+     - High-level scientific products derived from Level 2 after advanced scientific analysis.
+     - Derived Physical Units
+     - Yes (Advanced products: e.g., electron density maps, solar wind velocity maps, Carrington maps)
 
 Primary L2 Data Products
 ------------------------
@@ -41,12 +64,31 @@ The standard format is:
 
 ``solo_<LEVEL>_[DESCRIPTOR]_[DATETIME]_V[VERSION].fits``
 
-| Component | Description | Example | Relevance |
-| :--- | :--- | :--- | :--- |
-| **LEVEL** | Processing level (L1, L2, L3). | `L2` | Determines calibration status. |
-| **DESCRIPTOR** | Unique string identifying the data type. | `metis-vl-tB` (VL total brightness) | Required for fetching specific products. |
-| **DATETIME** | Timestamp of the data acquisition (UTC). | `20240515T120000` | Used for time-based searching. |
-| **VERSION** | Version of the FITS file/pipeline used. | `V01` | Important for reproducible analysis. |
+.. list-table:: **Filename Components**
+   :header-rows: 1
+   :widths: 15 35 25 25
+
+   * - **Component**
+     - **Description**
+     - **Example**
+     - **Relevance**
+   * - **LEVEL**
+     - Processing level (L1, L2, L3).
+     - ``L2``
+     - Determines calibration status.
+   * - **DESCRIPTOR**
+     - Unique string identifying the data type.
+     - ``metis-vl-tB`` (VL total brightness)
+     - Required for fetching specific products.
+   * - **DATETIME**
+     - Timestamp of the data acquisition (UTC).
+     - ``20240515T120000``
+     - Used for time-based searching.
+   * - **VERSION**
+     - Version of the FITS file or pipeline used.
+     - ``V01``
+     - Important for reproducible analysis.
+
 
 .. note::
     When using the Metis Python Tools, the specific **DESCRIPTOR** is handled internally by functions.  
