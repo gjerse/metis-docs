@@ -92,4 +92,5 @@ The standard format is:
 
 
 .. note::
-    When using the Metis Python Tools, the specific **DESCRIPTOR** is handled internally by functions.  
+    Further information on the Metis FITS files structure and processing concepts can be found in the Metis Website: `Metis Data Products <https://metis.oato.inaf.it/data-products/>`__ . 
+    
