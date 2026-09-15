@@ -6,9 +6,14 @@ Metis Data Tools User Guide
 ====================================
 Welcome to the **Solar Orbiter Metis Data Tools User Guide**! 🌞🚀
 
-This documentation provides guides, interactive examples, and resources 
-for working with **Metis data in Python**, primarily utilizing the powerful 
-`SunPy <https://sunpy.org>`__ ecosystem.
+This documentation supports researchers and students working with **Metis data in Python**, 
+primarily within the ``SunPy`` / ``Astropy`` ecosystem. It covers:
+
+- data products and processing levels;
+- access to Metis data and metadata;
+- scientific caveats and known instrumental effects;
+- reproducible analysis workflows and examples;
+- reference documentation for the Metis Python tools.
 
 
 This documentation is divided into key sections to guide you from installation to advanced analysis.
