@@ -2,176 +2,223 @@
 Getting Started with Metis Data Tools
 =====================================
 
-This page provides an overview of how to set up your Python environment and start working with **Solar Orbiter Metis data** using the official analysis tools.
+This page explains how to set up a Python environment and start working with
+**Solar Orbiter Metis data** using the official analysis tools.
 
-This documentation and the :doc:`Example Gallery <auto_gallery/index>` build upon existing tools in the `SunPy <https://sunpy.org>`__ ecosystem, leveraging community-developed libraries for solar physics research.
+The examples and workflows in this documentation build on the
+`SunPy <https://sunpy.org>`__ ecosystem and related community libraries for
+solar physics.
+
+If you are already familiar with Python and SunPy, you can skip directly to
+the :ref:`quick-setup` section.
 
 
-Installing Python and Development Environment
----------------------------------------------
+Python and environment requirements
+-----------------------------------
+
+To follow the examples in this documentation you need:
+
+- **Python 3.10 or newer** (3.11+ recommended);
+- a working installation of:
+  - `SunPy <https://docs.sunpy.org>`__,
+  - `Astropy <https://www.astropy.org>`__,
+  - the Metis Python tools (e.g. ``metis-tools`` or the package you maintain).
+
+We strongly recommend using an **isolated environment** (Conda or ``venv``) so
+that package versions remain stable and reproducible.
+
+
+Installing Python and Conda
+---------------------------
+
+If you do not yet have Python or Conda, you can choose one of the following
+options:
 
 **Anaconda**  
+A full-featured distribution with many scientific packages pre-installed.
 
-A comprehensive suite for installing Python and major scientific libraries.
- 
-- Guide: `Installing Anaconda <https://docs.anaconda.com/anaconda/install/>`_  
-- Official site: `Anaconda.org <https://anaconda.org/>`_
+- Installation guide: `Installing Anaconda <https://docs.anaconda.com/anaconda/install/>`__
+- Website: `Anaconda.org <https://anaconda.org/>`__
 
 **Miniconda**  
+A minimal Conda distribution; ideal if you want to install only what you need.
 
-A lightweight alternative to Anaconda for creating custom environments.
-
-- Guide: `Installing Miniconda <https://docs.anaconda.com/miniconda/install/>`_
+- Installation guide: `Installing Miniconda <https://docs.anaconda.com/miniconda/install/>`__
 
 **Python.org**  
+Official Python installer for minimal setups (you will manage packages with
+``pip`` and possibly ``venv``).
 
-Official Python installation for minimal setups.
+- Installation guide: `Python Installation <https://docs.python.org/3/using/index.html>`__
+- Website: `Python.org <https://www.python.org/>`__
 
-- Guide: `Python Installation <https://docs.python.org/3/using/index.html>`_
-- Official site: `Python.org <https://www.python.org/>`_
+For most solar physics workflows, **Miniconda or Anaconda** are the most
+convenient options because they simplify the installation of scientific
+libraries and the management of environments.
+
+
+Managing Python environments
+----------------------------
+
+Using isolated environments avoids conflicts between packages and makes your
+setup reproducible.
+
+**Conda (via Anaconda or Miniconda)**
+
+Example::
+
+    conda create -n metis-env python=3.11
+    conda activate metis-env
+
+Guide: `Conda Environments <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`__
+
+**Virtualenv**
+
+Alternative tool for managing Python environments when you do not use Conda.
+
+- Guide: `Virtualenv <https://virtualenv.pypa.io/en/latest/>`__
+
+Whichever tool you use, we recommend creating a dedicated environment for
+Metis analysis (e.g. ``metis-env``) and documenting the package versions you
+use for each project.
+
 
 Code Editors and IDEs
 ---------------------
 
-**Jupyter Notebook** 
+Any editor that supports Python and Jupyter notebooks is suitable. Common
+choices in the solar physics community include:
 
-An interactive environment for writing, running, and visualizing Python code; ideal for data exploration and quick prototyping. 
+**Jupyter Notebook / JupyterLab**  
+Interactive environment ideal for data exploration, visualization, and sharing
+analysis as notebooks.
 
-- Guide: `Using Jupyter <https://jupyter-notebook.readthedocs.io/en/stable/>`_  
-- Official site: `Jupyter.org <https://jupyter.org/>`_
+- Documentation: `Jupyter Notebook <https://jupyter-notebook.readthedocs.io/>`__
+- Website: `Jupyter.org <https://jupyter.org/>`__
 
 **Visual Studio Code**  
+Lightweight IDE with excellent Python and Jupyter support.
 
-A lightweight IDE with excellent Python support.
-
-- Extensions: Python, Jupyter, and Pylance for linting and autocompletion.  
-- Guide: `Getting Started with VS Code <https://code.visualstudio.com/docs/python/python-tutorial>`_  
-- Official site: `Visual Studio Code <https://code.visualstudio.com/>`_
+- Recommended extensions: Python, Jupyter, Pylance.
+- Tutorial: `Python in VS Code <https://code.visualstudio.com/docs/python/python-tutorial>`__
+- Website: `Visual Studio Code <https://code.visualstudio.com/>`__
 
 **Spyder**  
+Scientific IDE included with Anaconda, familiar to users coming from MATLAB.
 
-An IDE included with Anaconda, tailored for scientific computing.
+- Website: `Spyder IDE <https://www.spyder-ide.org/>`__
 
-- Ideal for beginners transitioning from MATLAB.  
-- Official site: `Spyder IDE <https://www.spyder-ide.org/>`_
-
-Managing Python Environments
-----------------------------
-
-**Conda (via Anaconda or Miniconda)**  
-Create and manage isolated environments.
-
-Example::
-
-    conda create -n myenv python=3.10
-    conda activate myenv
-
-Guide: `Conda Environments <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_
-
-**Virtualenv**  
-Alternative tool for managing Python environments.
-
-- Guide: `Virtualenv Tutorial <https://virtualenv.pypa.io/en/latest/>`_
+You do not need a specific IDE to use the Metis tools; choose the environment
+in which you are most productive.
 
 
-Installing the Required Packages
+.. _quick-setup:
+
+Installing the required packages
 --------------------------------
 
-Before working with Metis data, you need **Python** (version 3.11+ recommended) and a few key libraries. For detailed installation instructions, including setting up a dedicated environment, please refer to the `SunPy Installation Guide <https://docs.sunpy.org/en/stable/tutorial/installation.html>`__.
+Once you have Python and an active environment, install the core libraries
+needed for Metis data analysis.
 
-**Quick Setup**
+For a **quick setup** with ``pip``::
 
-For a quick setup, you can install the core dependencies using **pip**. This command includes the Metis analysis package and essential SunPy libraries for data access:
+    pip install metis-tools sunpy sunpy-soar
 
-.. code-block:: bash
+Or, if you prefer Conda::
 
-    pip install metis-tools sunpy sunpy-soar 
+    conda install -c conda-forge metis-tools sunpy sunpy-soar
 
-Or, if you prefer using conda:
+These commands install:
 
-.. code-block:: bash
+- ``metis-tools``:  
+  Core Python package with functions specific to Metis data (loading,
+  calibration helpers, utilities).
+- `SunPy <https://docs.sunpy.org>`__:  
+  Community library for solar data, providing ``Map``, ``Fido``, and related
+  tools.
+- `sunpy-soar <https://docs.sunpy.org/projects/soar/en/latest/>`__:  
+  Plug-in for programmatic access to the Solar Orbiter Archive (SOAR) via
+  ``Fido``.
 
-    conda install -c conda-forge metis-tools sunpy sunpy-soar 
+If you already have SunPy and only need the Metis-specific tools, you can
+install just ``metis-tools``.
 
-These packages provide:
-
-* **``metis-tools``**: The core Python package with functions specific to Metis.
-* `sunpy <https://docs.sunpy.org/en/stable/>`__
-* `sunpy_soar <https://docs.sunpy.org/projects/soar/en/latest/>`__: The SunPy plug-in interface for programmatic access to the Solar Orbiter Archive (SOAR) via Fido.
+For more detailed instructions on creating environments and managing
+dependencies, see the
+`SunPy Installation Guide <https://docs.sunpy.org/en/stable/tutorial/installation.html>`__.
 
 
-Verifying Your Installation
+Verifying your installation
 ---------------------------
 
-To ensure your setup is correct and all packages are accessible, run the following commands in your Python environment:
-
-.. code-block:: python
+To check that your installation is working correctly, run the following in a
+Python session or notebook::
 
     import sunpy
-    import sunpy_soar
     import metis_tools
 
     print("SunPy version:", sunpy.__version__)
     print("Metis Tools version:", metis_tools.__version__)
 
-If this runs without errors, you're ready to start working with Metis data!
+If this runs without errors, your environment is correctly configured and you
+can proceed to load and analyze Metis data.
+
+If you encounter import errors or version conflicts, try:
+
+- creating a fresh environment (e.g. ``conda create -n metis-test python=3.11``);
+- reinstalling the packages in that environment;
+- checking the :doc:`contributing` page for information on how to report issues.
 
 
-Tutorials and Online Resources
-------------------------------
+Tutorials and further resources
+-------------------------------
 
-**Python for Astronomy**
+If you are new to Python or SunPy, the following resources can help you get
+up to speed:
 
-- `AstroPython <https://astropy.org/>`_: Tutorials and resources for using Python in astronomy.
-- `Solar Orbiter Data Tutorials <https://www.cosmos.esa.int/web/solar-orbiter/data-tutorials>`_: Practical examples for astrophysical data analysis.
+**Python and astronomy**
 
-**Interactive Python Tutorials**
+- `Astropy tutorials <https://learn.astropy.org>`__
+- `Solar Orbiter data tutorials <https://www.cosmos.esa.int/web/solar-orbiter/data-tutorials>`__
 
-- `Google Colab <https://colab.google/>`_: Online Jupyter-like environment for running Python without local setup.
-- `Kaggle Notebooks <https://www.kaggle.com/code>`_: Free notebooks with Python examples for scientific computation.
+**Interactive Python environments**
 
-**Python Basics**
+- `Google Colab <https://colab.google>`__ – run notebooks in the browser without
+  local installation.
+- `Kaggle Notebooks <https://www.kaggle.com/code>`__ – free notebooks with
+  example code for scientific computing.
 
-- `Python.org Tutorials <https://docs.python.org/3/tutorial/>`_: Official Python documentation.
-- `Real Python <https://realpython.com/>`_: Beginner-friendly Python tutorials.
+**Python basics**
+
+- `Official Python tutorial <https://docs.python.org/3/tutorial/>`__
+- `Real Python <https://realpython.com>`__ – beginner-friendly tutorials and
+  articles.
+
+These resources are optional; the examples in this documentation are designed
+to be self-contained once you have installed the required packages.
 
 
-
-First Example: Loading Metis Data
----------------------------------
-
-The most common first step is to load data using the core Metis function, which automatically utilizes SunPy's Fido client (`sunpy.net.Fido`) to check your cache and download the file if necessary.
-
-.. code-block:: python
-
-    from metis_tools import metis_load
-
-    # Define the observation time and data product (e.g., L1 image)
-    time_stamp = '2024-05-15T12:00:00'
-
-    # Load the data. This returns a SunPy Map object.
-    metis_map = metis_load(time_stamp, product='L1') 
-
-    print("Data loaded for:", metis_map.date)
-    print(f"File source: {metis_map.meta.get('dsname')}")
-
-This query quickly loads calibrated Level 1 data and verifies that your data fetching and loading routines are functioning.
-
----
-
-Next Steps
+Next steps
 ----------
 
-Once your setup is complete, check out the following resources to continue your work:
+Once your environment is set up and you have successfully loaded your first
+Metis dataset, you can continue with:
 
-* :doc:`data_overview/index`:  
-  Learn more about Metis data products, observation levels (L1, L2), and the full suite of available tools (Python and IDL).
+- :doc:`data_overview/index` –  
+  Learn about Metis data products, processing levels (L0–L2+), FITS structure,
+  descriptors, and access methods.
 
-* :doc:`data_overview/analysis_tools`: 
-  Dive deeper into the specific community-developed Python functions for Metis data processing and plotting.
+- :doc:`topic_guides/index` –  
+  Understand coordinates and field of view, units and uncertainties,
+  calibration, polarimetry, image enhancement, and known instrumental effects.
 
-* :doc:`auto_gallery/index`:  
-  Browse practical **interactive examples** of how to query, download, and analyze Metis observations, often provided as executable Python scripts or Jupyter Notebooks.
+- :doc:`auto_gallery/index` –  
+  Browse reproducible examples of time-series analysis, polarimetry, CME
+  tracking, and multi-instrument studies.
 
-* :doc:`contributing`:  
-  Want to contribute examples or improve the documentation? Find out how you can help!
+- :doc:`api_reference/index` –  
+  Consult the auto-generated API reference for the Metis Python packages.
+
+- :doc:`contributing` –  
+  Contribute examples, report issues, or help improve this documentation.
+
