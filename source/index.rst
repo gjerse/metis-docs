@@ -29,8 +29,7 @@ This documentation is divided into key sections to guide you from installation t
         **Getting Started**
         ^^^
 
-        Learn how to install Python dependencies and get started with Metis data.
-
+        Install the required packages, configure your environment, and run your first end‑to‑end Metis example.
         +++
 
         .. button-ref:: getting_started
@@ -44,10 +43,11 @@ This documentation is divided into key sections to guide you from installation t
 
         :material-outlined:`build;8em;sd-text-secondary`
 
-        **Data & Tools Overview**
+        **Data & Tools**
         ^^^
 
-        Details on Metis data levels and documentation for both Python and legacy IDL analysis tools.
+        Understand Metis data levels, FITS structure, descriptors, and access methods.  
+        Find links to Python tools and legacy IDL routines.
 
         +++
 
@@ -65,7 +65,8 @@ This documentation is divided into key sections to guide you from installation t
         **Example Gallery**
         ^^^
 
-        Browse interactive scripts and Jupyter Notebooks demonstrating Metis data analysis and visualization.
+        Reproducible Python scripts and Jupyter notebooks for common Metis analyses: 
+        time series, polarimetry, CME tracking, and multi‑instrument studies.
 
         +++
 
@@ -80,11 +81,10 @@ This documentation is divided into key sections to guide you from installation t
 
         :material-outlined:`volunteer_activism;8em;sd-text-secondary`
 
-        **Contribute**
+        **Contribute & About**
         ^^^
 
-        Learn how to help improve this documentation, submit examples, or contribute to the Metis Python code.
-
+        How to contribute to this documentation, report issues, and find the changelog, glossary, and support contacts.
         +++
 
         .. button-ref:: contributing
