@@ -18,7 +18,7 @@ primarily within the ``SunPy`` / ``Astropy`` ecosystem. It covers:
 
 This documentation is divided into key sections to guide you from installation to advanced analysis.
 
-.. grid:: 1 1 2 2
+.. grid:: 1 1 2 3
     :gutter: 2 3 4 4
 
     .. grid-item-card::
@@ -62,6 +62,26 @@ This documentation is divided into key sections to guide you from installation t
 
         :material-outlined:`palette;8em;sd-text-secondary`
 
+    **Topic Guides**
+        ^^^
+
+        Scientific and technical background: coordinates and FOV, units and
+        uncertainties, calibration, polarimetry, image enhancement, known
+        issues, and co‑observations.
+
+        +++
+
+        .. button-ref:: topic_guides/index
+            :color: primary
+            :click-parent:
+
+            Browse Topic Guides
+
+    .. grid-item-card::
+        :text-align: center
+
+        :material-outlined:`code;8em;sd-text-secondary`
+
         **Example Gallery**
         ^^^
 
@@ -81,13 +101,32 @@ This documentation is divided into key sections to guide you from installation t
 
         :material-outlined:`volunteer_activism;8em;sd-text-secondary`
 
+        **API Reference**
+        ^^^
+
+        Auto‑generated reference for the Metis Python packages: classes, functions, and parameters.
+
+        +++
+
+        .. button-ref:: api_reference/index
+            :color: primary
+            :click-parent:
+
+            View API Reference
+
+    .. grid-item-card::
+        :text-align: center
+
+        :material-outlined:`volunteer_activism;8em;sd-text-secondary`
+
+
         **Contribute & About**
         ^^^
 
         How to contribute to this documentation, report issues, and find the changelog, glossary, and support contacts.
         +++
 
-        .. button-ref:: contributing
+        .. button-ref:: about/index
             :color: primary
             :click-parent:
 
@@ -121,6 +160,6 @@ What is this Documentation For?
    Getting Started <getting_started>
    Data and Tools Overview <data_overview/index>
    Topic Guide <topic_guides/index>  
-   Example Gallery <auto_gallery/index>
+   Example Gallery <examples/index>
    API Reference <api_reference/index>
-   Contributing <contributing>
+   About <about/index>

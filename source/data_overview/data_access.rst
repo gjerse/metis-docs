@@ -1,157 +1,180 @@
-
 Ways to Access Metis Data
 =========================
 
-This page details the available methods for accessing and downloading Metis data products from the **Solar Orbiter Archive (SOAR)**.
+This page summarizes the main ways to access and download **Solar Orbiter
+Metis data** from the **Solar Orbiter Archive (SOAR)**.
+
+If you are not sure where to start, use the **recommended Python workflow**
+below.
 
 
-1. Programmatic Access (Python Recommended)
--------------------------------------------
+Quick overview: how to access Metis data
+----------------------------------------
 
-Programmatic access allows users to search, download, and load data directly into their analysis environment (e.g., **Jupyter Notebooks**), ensuring a seamless workflow with the **Metis Python Tools**.
+There are four main access methods:
 
+1. **Programmatic access with SunPy (recommended for Python users)**  
+   Search, download, and load Metis data directly in Python using
+   ``sunpy.net.Fido`` and the native SOAR client.  
+   Best for: reproducible analysis, notebooks, pipelines.  
+   → See: :doc:`data_access_python`
 
-1.1. SunPy Plugin (``sunpy-soar``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. **Advanced metadata queries via SOAR TAP (power users)**  
+   Use the SOAR TAP service and ADQL to build custom queries and catalogues.  
+   Best for: large-scale queries, custom filters, archive inspection.  
+   → See: :doc:`data_access_tap`
 
-The recommended and most straightforward method for Python users to interact with **SOAR** is via the **sunpy-soar** plugin.  
-This integrates Metis data access directly into SunPy's ``Fido`` client.
+3. **Manual access via the SOAR web interface**  
+   Browse and download individual files through the SOAR website.  
+   Best for: first exploration, quick checks, small downloads.  
+   → See: :ref:`soar-web-interface`
 
-.. list-table:: **Tool Overview**
-   :header-rows: 1
-   :widths: 20 50 30
-
-   * - **Tool**
-     - **Description**
-     - **Relevance**
-   * - ``sunpy-soar``
-     - Plugin for accessing data in the Solar Orbiter Archive (SOAR) via the ``sunpy.net.Fido`` search interface.
-     - Primary tool used by the Metis Python tools. See Example Gallery for usage.
-
-1.2. VO Protocol Access (``PyVO``)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The direct web interface for the Solar Orbiter Archive (SOAR) is limited and not suitable for automated scripting. 
-
-To address this, SOAR provides an Application Programming Interface (API) based on the standard IVOA (International Virtual Observatory Alliance) protocols.
-
-PyVO simplifies this process in the Python environment, providing the necessary interface to execute TAP queries against the SOAR service.
-
-.. list-table:: **VO Access Summary**
-   :header-rows: 1
-   :widths: 25 45 30
-
-   * - **Protocol**
-     - **Service URL**
-     - **Purpose**
-   * - TAP (Table Access Protocol)
-     - http://soar.esac.esa.int/soar-sl-tap/tap
-     - Query SOAR metadata and request data files using ADQL (Astronomy Data Query Language).
-
-**Implementation Example (Searching SOAR tables)**
-
-.. code-block:: python
-
-    from astroquery.utils.tap.core import TapPlus
-    from astropy.table import Table
-    from datetime import datetime, timedelta
-
-    # 1. TAP SOAR Service Configuration
-    # The TAP service endpoint for SOAR
-    SOAR_URL = 'http://soar.esac.esa.int/soar-sl-tap/tap'
-
-    try:
-        # 2. Initialize the TapPlus object
-        SOAR = TapPlus(url=SOAR_URL)
-        print("Connection to SOAR TAP service established.")
-    except Exception as e:
-        print(f"ERROR: Could not connect to TapPlus: {e}")
-        # Note: Added 'sys.exit(1)' or similar would be needed to truly halt execution here.
-        # For now, we continue execution for demonstration purposes.
-
-    # --- Search Period Definition ---
-    # We define a period of 600 days to find recent data
-    end_date = datetime.today()
-    start_date = end_date - timedelta(days=600)
-
-    start_time_iso = start_date.strftime('%Y-%m-%dT%H:%M:%S')
-    end_time_iso = end_date.strftime('%Y-%m-%dT%H:%M:%S')
-
-    print(f"\nSearching for Metis L2 data between {start_date.date()} and {end_date.date()}...")
-
-    # 3. ADQL Query Construction (Astronomy Data Query Language)
-    # We query the scientific data items table (v_sc_data_item)
-    ADQL_QUERY = f"""
-        SELECT top 5 * FROM v_sc_data_item 
-        WHERE 
-            instrument = 'METIS' AND 
-            level = 'L2' AND 
-            begin_time >= '{start_time_iso}' AND 
-            end_time <= '{end_time_iso}'
-    """
-
-    # 4. Asynchronous Task Execution (launch_job)
-    # We use launch_job for queries that might take a long time
-    try:
-        tap_job = SOAR.launch_job(ADQL_QUERY)
-        
-        # 5. Get Results as an Astropy Table
-        results_table = tap_job.get_results()
-        
-        # Print key results
-        print(f"\n[RESULT] Found {len(results_table)} Metis L2 files (showing top 5):")
-        
-        # Convert the Astropy table to a Pandas DataFrame for clean visualization
-        results_df = results_table.to_pandas()
-        print(results_df[['data_item_id', 'begin_time', 'level', 'descriptor']].head())
-
-        # 6. Extract Download URLs (The actual goal of TAP)
-        # Direct download URLs are often included as the "access_url" column
-        if 'access_url' in results_table.colnames:
-            first_url = results_table['access_url'][0]
-            print(f"\nDownload URL First File: {first_url}")
-            
-            # Note: The function for direct file download via astroquery 
-            # depends on the service configuration; Fido is often used for the actual fetch.
-
-    except Exception as e:
-        print(f"\nERROR during ADQL query execution: {e}")
+4. **Legacy / alternative access via VSO and SolarSoft (IDL)**  
+   Access Metis data through the Virtual Solar Observatory and IDL/SolarSoft.  
+   Best for: existing IDL workflows and legacy pipelines.  
+   → See: :ref:`vso-ssw-access`
 
 
+Method 1: Programmatic access with SunPy (recommended)
+------------------------------------------------------
 
-2. Web Interface and Manual Access
+This is the **recommended workflow** for most users working in Python.
+
+You can:
+
+- search the SOAR archive with ``sunpy.net.Fido``;
+- download Metis files;
+- load them with ``sunpy.map.Map``;
+- use the native ``METISMap`` class for Level 2 products.
+
+Key features:
+
+- integrated SOAR client in ``sunpy.net`` (no separate ``sunpy-soar`` package
+  needed);
+- standard SunPy syntax, consistent with other instruments;
+- full interoperability with the SunPy ecosystem.
+
+**Where to find detailed examples**
+
+- :doc:`data_access_python` – step-by-step guide with code snippets.
+- :doc:`../auto_gallery/index` – runnable notebooks and scripts, including:
+  - searching and downloading Metis data;
+  - loading and plotting ``METISMap`` objects;
+  - building time series and CME height–time plots.
+
+If you are new to Metis data, start from these pages.
+
+
+Method 2: Advanced metadata queries via SOAR TAP
+------------------------------------------------
+
+For advanced use cases, SOAR provides a **TAP service** based on IVOA
+standards. You can query the archive metadata using ADQL (Astronomical Data
+Query Language) via ``PyVO`` or ``astroquery``.
+
+This method is useful when you need to:
+
+- build custom catalogues;
+- filter on metadata not exposed by the standard ``Fido`` attributes;
+- inspect archive descriptors and data-product properties;
+- develop large-scale or highly customized queries.
+
+**Where to find detailed examples**
+
+- :doc:`data_access_tap` – detailed explanation of the TAP service, example
+  ADQL queries, and Python code using ``astroquery``.
+
+
+.. _soar-web-interface:
+
+Method 3: Manual access via the SOAR web interface
+--------------------------------------------------
+
+The official **Solar Orbiter Archive** web interface is the primary tool for
+manual browsing and download of individual files.
+
+- **Interface:** `Solar Orbiter Archive <https://soar.esac.esa.int/soar/>`__
+- **Search parameters:** instrument, time range, data level, product, filename.
+- **Data types:** science data, low-latency data, auxiliary data.
+
+This method is particularly useful when:
+
+- you are exploring the archive for the first time;
+- you want to check which products are available for a given time interval;
+- you need to download a small number of files manually.
+
+The web interface also supports **SAMP** (Simple Application Messaging
+Protocol), allowing search results to be transferred to compatible external
+applications such as **JHelioviewer**.
+
+For more information, see the SOAR documentation on SAMP and external tool
+integration.
+
+
+.. _vso-ssw-access:
+
+Method 4: Legacy / alternative access via VSO and SolarSoft
+-----------------------------------------------------------
+
+Metis data may also be accessed through the **Virtual Solar Observatory
+(VSO)** and the **SolarSoft/IDL** ecosystem.
+
+This route may be useful for:
+
+- users maintaining established IDL workflows;
+- legacy analysis procedures;
+- cross-instrument queries involving data available through VSO.
+
+For new Python workflows, the integrated SunPy/SOAR interface is recommended
+because it provides the current standard interface for searching and loading
+Metis data.
+
+
+Data availability and releases
+------------------------------
+
+Metis data are distributed through scheduled data releases. The available
+products, processing levels, and calibration status may depend on the release
+and the version of the processing pipeline.
+
+Before beginning a scientific analysis, record:
+
+- the data-release identifier;
+- the processing level;
+- the product and observing mode;
+- the pipeline or calibration version, when available;
+- the date on which the data were downloaded.
+
+Level 0 raw data and Level 1 engineering or uncalibrated products are not
+necessarily distributed publicly. They may be available upon request for
+calibration activities or specific scientific studies.
+
+For technical assistance or data requests outside the public releases, contact
+the Metis team through the support channel listed in
+:doc:`../about/support`.
+
+
+Recommended workflow for new users
 ----------------------------------
 
-2.1. SOAR Web Interface
-~~~~~~~~~~~~~~~~~~~~~~~
+If you are new to Metis data, the following path is recommended:
 
-The primary method for manual browsing and download is the official **Solar Orbiter Archive** web interface.
-
-- **Interface:** `SOAR Web Interface <https://soar.esac.esa.int/>`_
-- **Search Parameters:** Instrument, Time (from/to), Level (L0, L1, L2, L3), and filename.
-- **Data Types Available:** Science, Low Latency (LL), and Auxiliary Data.
-
-
-2.2. Interoperability and Visualization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- **SAMP Protocol:** The SOAR web interface supports the **SAMP (Simple Application Messaging Protocol)**.  
-  This allows the search results to be instantly transferred and viewed in external visualization tools like **JHelioviewer**.
-
-**Reference:** Consult the *SAMP tutorial* for setting up external tool integration.
+1. Read this overview page.
+2. Follow the **programmatic access with SunPy** examples in
+   :doc:`data_access_python`.
+3. Run one or more notebooks from the :doc:`../auto_gallery/index`.
+4. Consult the relevant :doc:`../topic_guides/index` pages (coordinates,
+   units, calibration, known issues) before interpreting enhanced or
+   polarimetric products.
 
 
-2.3. VSO and SSW Access (Legacy / Alternative)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+See also
+--------
 
-Data is also available via the **Virtual Solar Observatory (VSO)** interface, which can be accessed either through **IDL/SSW (SolarSoftWare)** or programmatically via the VSO module in **SunPy’s Fido**.
-
-
-Data Availability and Releases
---------------------------------
-
-Metis L2 data is made available through scheduled periodic **data releases**.  
-Check the list of current releases on the **Metis Team website** or the **SOAR interface** for the latest available data.
-
-Level 0 (Raw) and Level 1 (Engineering) uncalibrated data are not publicly distributed but may be available upon request.  
-For technical assistance or data requests outside of public releases, please contact the **Metis Team** at `metis@inaf.it <mailto:metis@inaf.it>`_.
-
+- :doc:`data_access_python` – detailed Python examples with ``Fido`` and
+  ``METISMap``.
+- :doc:`data_access_tap` – advanced TAP/ADQL queries.
+- :doc:`analysis_tools` – overview of Metis analysis functions.
+- :doc:`../auto_gallery/index` – runnable examples and notebooks.
+- :doc:`../topic_guides/index` – scientific and technical background.
+- :doc:`../about/support` – how to get help and report issues.
