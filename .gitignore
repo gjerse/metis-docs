@@ -1,0 +1,24 @@
+# Ignore all FITS files
+*.fits
+*.fits.gz
+*.fit
+*.fit.gz
+
+# Ignore large data directories (if you ever create them)
+data/
+sample_data/
+downloads/
+
+# Ignore Jupyter checkpoint / ipynb checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore build output (if you don't want it in the repo)
+build/
+_build/
+
+env/
