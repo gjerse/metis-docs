@@ -32,7 +32,7 @@ New to Metis data
   observations from the Solar Orbiter Archive (SOAR).
 
 Looking for programmatic data access
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * See :doc:`data_access` for examples using the SunPy ``Fido`` interface and
   the ``sunpy-soar`` plugin.
