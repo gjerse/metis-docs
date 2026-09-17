@@ -167,7 +167,7 @@ If you encounter import errors or version conflicts, try:
 
 - creating a fresh environment (e.g. ``conda create -n metis-test python=3.11``);
 - reinstalling the packages in that environment;
-- checking the :doc:`contributing` page for information on how to report issues.
+- checking the :doc:`about/contributing` page for information on how to report issues.
 
 
 Tutorials and further resources
@@ -219,6 +219,6 @@ Metis dataset, you can continue with:
 - :doc:`api_reference/index` –  
   Consult the auto-generated API reference for the Metis Python packages.
 
-- :doc:`contributing` –  
+- :doc:`/about/contributing` –  
   Contribute examples, report issues, or help improve this documentation.
 

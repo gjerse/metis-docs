@@ -235,7 +235,7 @@ The general steps are:
 4. Convert pixel positions to heliocentric distances using the map metadata.
 5. Plot height versus time.
 
-A complete example is available in the :doc:`auto_gallery/index`. You can use
+A complete example is available in the :doc:`../auto_gallery/index`. You can use
 it as a starting point and adapt it to your own events and methods.
 
 
@@ -309,7 +309,7 @@ Where to go next
 ----------------
 
 - :doc:`data_access_tap` – advanced metadata queries via the SOAR TAP service.
-- :doc:`analysis_tools` – overview of Metis analysis functions.
+- :doc:`../analysis_tools` – overview of Metis analysis functions.
 - :doc:`../auto_gallery/index` – runnable examples and notebooks.
 - :doc:`../topic_guides/index` – coordinates, units, calibration, known issues.
 - :doc:`../about/support` – how to get help and report issues.
