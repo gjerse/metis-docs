@@ -1,7 +1,7 @@
 myst-parser
 numpy
 matplotlib
-sunpy[all]>=8   
+sunpy[all] 
 sphinx
 sphinx-gallery
 sphinx-design
