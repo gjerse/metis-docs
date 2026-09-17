@@ -309,7 +309,7 @@ Where to go next
 ----------------
 
 - :doc:`data_access_tap` – advanced metadata queries via the SOAR TAP service.
-- :doc:`../analysis_tools` – overview of Metis analysis functions.
+- :doc:`../analysis_python/analysis_tools` – overview of Metis analysis functions.
 - :doc:`../auto_gallery/index` – runnable examples and notebooks.
 - :doc:`../topic_guides/index` – coordinates, units, calibration, known issues.
 - :doc:`../about/support` – how to get help and report issues.
