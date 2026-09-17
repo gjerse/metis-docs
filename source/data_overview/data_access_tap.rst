@@ -279,8 +279,7 @@ The main differences between the TAP approach and the standard
 - **TAP/ADQL (PyVO)**:
   - low-level, metadata-oriented interface;
   - maximum flexibility for custom queries;
-  - better suited for building catalogues, archive inspection, and advanced
-    filtering;
+  - better suited for building catalogues, archive inspection, and advanced filtering;
   - requires more manual work to go from metadata to loaded data.
 
 In practice, many users will:

@@ -1,82 +1,78 @@
-Metis Data and Analysis Tools
-=============================
+Metis Data and Data Access
+==========================
 
-This section is your central resource for understanding, accessing, and
-analyzing **Solar Orbiter Metis data** in Python. It covers:
+This section provides a central resource for understanding and accessing
+**Solar Orbiter Metis data**. It introduces the available data products,
+processing levels, FITS structure, metadata, and the different ways of
+accessing Metis observations from the Solar Orbiter Archive (SOAR).
 
-- data products and processing levels;
-- FITS structure and naming conventions;
-- programmatic data access from the SOAR archive;
-- the core ``metis-tools`` Python package;
-- integration with legacy IDL routines.
+The section covers:
 
-Use the pages below to follow a typical analysis workflow: from data discovery
-and download, to loading, processing, and visualization.
+* data products and processing levels;
+* FITS structure and naming conventions;
+* key header keywords and metadata;
+* programmatic access to Metis data from the SOAR archive;
+* data access through the SunPy ``Fido`` interface;
+* advanced archive access through the SOAR TAP service.
+
+Use the pages below to follow a typical data-access workflow, from
+understanding the available data products to discovering and downloading
+the observations you need.
 
 
 How to use this section
 -----------------------
 
-If you are:
+New to Metis data
+^^^^^^^^^^^^^^^^^
 
-**New to Metis data**
+* Start with :doc:`products_and_levels` to understand the available data
+  products, processing levels, and FITS structure.
+* Then go to :doc:`data_access` to learn how to find and download Metis
+  observations from the Solar Orbiter Archive (SOAR).
 
-- Start with :doc:`products_and_levels` to understand data levels, products, and FITS
-  structure.
-- Then go to :doc:`data_access` to learn how to find and download data from
-  SOAR.
+Looking for programmatic data access
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Ready to analyze data in Python**
-
-- Go directly to :doc:`analysis_tools` for an overview of the ``metis-tools``
-  package and typical workflows.
-- Browse the :doc:`../auto_gallery/index` for reproducible examples.
-
-**Using or migrating from IDL**
-
-- See :doc:`idl_tools` for guidance on using legacy IDL routines and importing
-  ``.sav`` files into Python.
+* See :doc:`data_access` for examples using the SunPy ``Fido`` interface and
+  the ``sunpy-soar`` plugin.
+* See :doc:`data_access_tap` for advanced access to SOAR through the TAP
+  service, including metadata queries using ADQL and PyVO.
 
 
-Key analysis workflows
-----------------------
+Data and access workflows
+-------------------------
 
-**Data Overview** (:doc:`products_and_levels`)  
-A comprehensive introduction to Metis data products, including:
+Data products and processing levels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- data levels (L0, L1, L2, L3) and their scientific meaning;
-- FITS file naming conventions used in the Solar Orbiter Archive (SOAR);
-- key header keywords and metadata.
+:doc:`products_and_levels` introduces the Metis data products, including:
 
-**Data Access and Download** (:doc:`data_access`)  
-Instructions and **Python code snippets** for programmatically downloading
-Metis data from the official SOAR archive using the SunPy ``Fido`` client and
-the ``sunpy-soar`` plug‑in.
+* data processing levels (L0, L1, L2, L3) and their scientific meaning;
+* the different types of Metis data products;
+* FITS file naming conventions used in the Solar Orbiter Archive (SOAR);
+* relevant header keywords and metadata.
 
-**Python Analysis Functions** (:doc:`analysis_tools`)  
-An overview of the core functionality in the ``metis-tools`` Python package:
+Data access and download
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-- the main data loader (e.g. ``metis_load()``);
-- utilities for visualization and basic processing;
-- integration with SunPy ``Map`` and the broader SunPy/Astropy ecosystem.
+:doc:`data_access` gives instructions and Python examples for discovering and
+downloading Metis data from the Solar Orbiter Archive using the SunPy ``Fido``
+client and the ``sunpy-soar`` plugin.
 
-**Integration of Legacy IDL Tools** (:doc:`idl_tools`)  
-Guidance on when and how to use **legacy IDL routines**, and how to safely
-import IDL output files (``.sav``) into the Python environment for final
-analysis and publication‑ready plotting, minimizing interruptions to your
-Python workflow.
+Advanced SOAR access
+^^^^^^^^^^^^^^^^^^^^
+
+:doc:`data_access_tap` documents how to access the SOAR archive through the
+Table Access Protocol (TAP) service. It introduces ADQL queries and the PyVO
+interface for advanced metadata searches, archive inspection, and flexible
+data selection.
 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Analysis Workflows
+   :caption: Metis Data
 
    products_and_levels
    data_access
-   analysis_tools
-   idl_tools
-
-
-
-
-
+   data_access_tap

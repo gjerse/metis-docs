@@ -1,8 +1,7 @@
 myst-parser
 numpy
 matplotlib
-sunpy[all]>=6.1   
-sunpy_soar 
+sunpy[all]>=8   
 sphinx
 sphinx-gallery
 sphinx-design

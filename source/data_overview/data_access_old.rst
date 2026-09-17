@@ -181,7 +181,7 @@ For more information, see the
 
 
 Advanced access through the SOAR TAP service
--------------------------------------------
+--------------------------------------------
 
 The SOAR web interface is useful for manual browsing, but advanced users may
 need more flexible queries than those exposed through the standard ``Fido``
